@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #E8E8F0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.phoneFrame {
+  width: 377px;
+  height: 814px;
+  background-color: #F7F8F9; 
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;      
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow-x: hidden;        
+  overflow-y: auto;          
+  display: flex;
+  flex-direction: column;
+}
