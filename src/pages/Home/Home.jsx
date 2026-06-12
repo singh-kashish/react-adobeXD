@@ -6,22 +6,32 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.page}>
-      {/* Text + CTA — positioned at y≈549 per XD spec */}
-      <div className={styles.content}>
-        <h2 className={styles.heading}>Welcome to PopX</h2>
-        <p className={styles.subtitle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+    <main className={styles.page}>
+      {/* Grouping text content introduces structured layout boundaries */}
+      <section className={styles.content}>
+        <h1 className={styles.heading}>Welcome to PopX</h1>
+        <p className={styles.subtitle}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        </p>
+      </section>
+
+      {/* Semantic action wrapper */}
+      <div className={styles.actions}>
+        <Button 
+          variant="primary" 
+          onClick={() => navigate('/signup')} 
+          className={styles.createAccount}
+        >
+          Create Account
+        </Button>
+        <Button 
+          variant="outline" 
+          onClick={() => navigate('/login')}
+          className={styles.loginBtn}
+        >
+          Already Registered? Login
+        </Button>
       </div>
-        <div className={styles.actions}>
-          {/* Interaction: Tap → Login screen */}
-          <Button variant="primary" fullWidth onClick={() => navigate('/signup')}>
-            Create Account
-          </Button>
-          {/* Interaction: Tap → Signup screen */}
-          <Button variant="purple" fullWidth onClick={() => navigate('/login')}>
-            Already Registered? Login
-          </Button>
-      </div>
-    </div>
+    </main>
   );
 }
