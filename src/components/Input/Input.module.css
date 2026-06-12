@@ -1,35 +1,85 @@
-.wrapper {
+.containerStyle {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  /* Total explicit width requested */
+  width: 335px; 
+  box-sizing: border-box;
+}
+
+/* The actual text field layout (handles bottom, left, right borders) */
+.inputStyle {
   width: 100%;
-}
-
-.label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-dark);
-  letter-spacing: 0;
-}
-
-.input {
-  font-family: var(--font-family);
-  font-size: 15px;
+  padding: 12px 16px;
+  font-family: var(--font-family), sans-serif;
+  font-size: 0.875rem;
   font-weight: 400;
-  color: var(--color-dark);
-  background: var(--color-input-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: 10px;
-  padding: 13px 16px;
+  color: #919191;
   outline: none;
-  transition: border-color 0.2s;
-  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  
+  /* Construct the lower frame of the box */
+  border: 1px solid #CBCBCB;
+  border-top: none; /* Removed so our custom row can handle the top cutouts */
+  border-radius: 0 0 6px 6px;
 }
 
-.input::placeholder {
-  color: var(--color-muted);
+/* Custom top row container sitting exactly on the top edge */
+.topBorderRow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 335px;
+  height: 1px; /* Align strictly with line height */
+  display: flex;
+  pointer-events: none;
 }
 
-.input:focus {
-  border-color: var(--color-primary);
+/* - The starting border anchor segment: exactly 14px */
+.leftBorderSegment {
+  width: 14px;
+  border-top: 1px solid #CBCBCB;
+  /* Matches top-left curvature of standard radius hooks */
+  border-top-left-radius: 6px; 
+}
+
+/* - The explicit Notched Label Area: exactly 103px wide */
+/* Adjust to 135px if you prefer your alternative specification measurement */
+.labelArea {
+  width: 103px; 
+  position: relative;
+  background-color: var(--color-white, #ffffff);
+  /* Pulls the layout upward slightly so text splits the boundary line */
+  transform: translateY(-50%); 
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Text styles inside your cut out boundary area */
+.labelText {
+  color: var(--color-primary, #7c3aed); /* All purple text rule */
+  font-size: 13px;
+  font-weight: 400;
+  font-family: var(--font-family), sans-serif;
+  line-height: 1;
+  
+  /* Requirement: Left padding of exactly 2px */
+  padding-left: 2px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* - The remaining border: automatically takes up the rest of the 335px width */
+.rightBorderSegment {
+  flex-grow: 1;
+  border-top: 1px solid #CBCBCB;
+  border-top-right-radius: 6px;
+}
+
+.asteriskStyle {
+  color: #ef4444; /* Mandatory marker element */
+  margin-left: 2px;
 }

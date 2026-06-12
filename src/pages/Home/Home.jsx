@@ -7,7 +7,6 @@ export default function Home() {
 
   return (
     <main className={styles.page}>
-      {/* Grouping text content introduces structured layout boundaries */}
       <section className={styles.content}>
         <h1 className={styles.heading}>Welcome to PopX</h1>
         <p className={styles.subtitle}>
@@ -15,7 +14,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Semantic action wrapper */}
       <div className={styles.actions}>
         <Button 
           variant="primary" 
