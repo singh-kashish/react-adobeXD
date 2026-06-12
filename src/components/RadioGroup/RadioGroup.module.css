@@ -1,0 +1,72 @@
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px; /* Space between the Yes and No buttons */
+  width: 335px;
+  box-sizing: border-box;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+/* Hide native browser radio circle */
+.hiddenRadio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Outer custom radio circle */
+.customRadio {
+  width: 1.375rem;
+  height: 1.375rem;
+/* UI Properties */
+  border: 1px solid #919191;
+  opacity: 1;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+/* When checked, change outer border color */
+.hiddenRadio:checked ~ .customRadio {
+  border-color: #6C25FF;
+}
+
+/* Inner filled circle (The Dot) */
+.customRadio::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #6C25FF; /* Filled color requested */
+}
+
+/* Show the inner filled dot when checked */
+.hiddenRadio:checked ~ .customRadio::after {
+  display: block;
+}
+
+/* Label Typography matching your existing page style */
+.labelText {
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  color: #1D2226;
+  margin-left: 8px; /* Space to the right of the radio circle */
+  line-height: 17px;
+}
