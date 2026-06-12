@@ -21,7 +21,6 @@ export default function Home() {
           <Button variant="purple" fullWidth onClick={() => navigate('/login')}>
             Already Registered? Login
           </Button>
-        
       </div>
     </div>
   );
