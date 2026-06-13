@@ -23,7 +23,7 @@ export default function Home() {
           Create Account
         </Button>
         <Button 
-          variant="outline" 
+          variant="purple" 
           onClick={() => navigate('/login')}
           className={styles.loginBtn}
         >

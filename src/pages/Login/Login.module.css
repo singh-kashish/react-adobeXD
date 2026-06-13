@@ -3,7 +3,7 @@
   height: 100%;
   padding: 2.5rem 1.25rem;
   background: var(--color-white);
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
